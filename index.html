@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Om AI Tool</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f0f0f5;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: #2e3b55;
+            color: white;
+            padding: 20px 0;
+        }
+        h1 {
+            margin: 0;
+        }
+        img {
+            max-width: 200px;
+            border-radius: 15px;
+            margin: 20px 0;
+        }
+        .button {
+            display: inline-block;
+            margin: 10px;
+            padding: 15px 25px;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            transition: 0.3s;
+        }
+        .button:hover {
+            background-color: #45a049;
+        }
+        .container {
+            padding: 20px;
+        }
+        textarea {
+            width: 90%;
+            height: 100px;
+            margin: 10px 0;
+            font-size: 16px;
+        }
+        #output {
+            background: #fff;
+            padding: 15px;
+            border-radius: 10px;
+            width: 90%;
+            margin: 20px auto;
+            min-height: 50px;
+            box-shadow: 0 0 5px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Om AI Tool</h1>
+    </header>
+
+    <div class="container">
+        <img src="assets/om.jpg" alt="Om Image">
+        <p>Type your text below and see AI analyze it!</p>
+        <form method="POST" action="/analyze">
+            <textarea name="user_input" placeholder="Enter your text here..." required></textarea>
+            <br>
+            <button type="submit" class="button">Analyze</button>
+        </form>
+        <div id="output">
+            {% if result %}
+                <strong>AI Output:</strong>
+                <p>{{ result }}</p>
+            {% endif %}
+        </div>
+        <br>
+        <a href="/" class="button">Home</a>
+        <a href="/projects" class="button">Projects</a>
+    </div>
+</body>
+</html>
